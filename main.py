@@ -5,7 +5,7 @@ from Cuadrado import Cuadrado
 from Rectangulo import Rectangulo
 from Cilindro import Cilindro
 from Paralelogramo import Paralelogramo
-
+from Rombo import Rombo
 def mostrar_menu():
     while True:
         print("Elige la figura a calcular:")
@@ -13,10 +13,12 @@ def mostrar_menu():
         print("2. Calcular area de un Circulo")
         print("3. Calcular area de un Cuadrado")
         print("4. Calcular area de un Rectangulo")
-        print("5. Calcular area de un Cilindro")
+        print("5. Calcular area de un Cilindro") 
         print("6. Calcular area de un Paralelogramo")
-        print("7. Salir")
-        
+        print("7. Calcular area de un Rombo")
+        print("8. Calcular area de un Trapecio")
+        print("9. Salir del menu")
+
         opcion = input("Digite el numero de su eleccion: ")
         
         if opcion == "1":
@@ -80,9 +82,32 @@ def mostrar_menu():
               area = mi_paralelogramo.area_paralelogramo(base, altura)
               print(f"Area: {area: .2f}")
            except:
-              print("Opción no válida, seleccione un valor válido") 
-              
+              print("Opción no válida, seleccione un valor válido")
+
         elif opcion == "7":
+             try:
+                D = float(input("Diagonal mayor del Rombo: "))
+                d = float(input("Diagonal menor del Rombo: "))
+                from Rombo import Rombo
+                mi_Rombo = Rombo("Rombo")
+                area = mi_Rombo.area_rombo(D, d)
+                print(f"Area: {area: .2f}")
+             except:
+               print("Opción no válida, seleccione un valor válido")
+
+        elif opcion == "8":
+             try:
+                base_mayor = float(input("Base mayor del Trapecio:"))
+                base_menor = float(input("Base menor del Trapecio:"))
+                altura = float(input("Altura de un Trapecio"))
+                from Trapecio import Trapecio
+                mi_Trapecio = Trapecio("Trapecio")
+                area = mi_Trapecio.area_trapecio(base_mayor, base_menor, altura)
+                print(f"Area: {area: .2f}")
+             except:
+                print("Opción no válida, seleccione un valor válido")
+              
+        elif opcion == "9":
            print("Gracias por usar el menu")
            break # Termina el bucle y sale del programa
 
